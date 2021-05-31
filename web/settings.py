@@ -1,16 +1,9 @@
-from flask import Flask
-from web.runcmd import runcmd
+from os import environ
+from dotenv import load_dotenv
+load_dotenv() 
 
-cmd=['python -VVV','pip -VVV']
-
-x=runcmd(cmd)
-
-app = Flask(__name__)
-@app.route('/')
-def index():
-    return f'hello from flask'
-
-@app.route('/dev/')
-def dev():
-    return f"this is output{x[0]},this is output2{x[1]}"
-
+SECRET_KEY = environ.get('SECRET_KEY')
+DEBUG=environ.get('DEBUG')
+TESTING = 0
+ENV=environ.get('ENV')
+TEST_=environ.get('TEST_')
