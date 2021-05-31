@@ -6,6 +6,7 @@ app.config.from_pyfile("settings.py")
 def index():
     return f'hello from flask'
 
+
 @app.route('/dev/')
 def dev():
     return f"hello:{app.config['SECRET_KEY']}"
